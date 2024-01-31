@@ -3,6 +3,12 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      backgroundImage: {
+        banner: "url('/src/assets/background.svg')",
+      },
+      minWidth: {
+        128: '32rem',
+      },
       colors: {
         yellow: {
           dark: '#C47F17',
