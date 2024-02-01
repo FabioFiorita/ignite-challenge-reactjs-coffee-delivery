@@ -1,12 +1,13 @@
-import { NavBar } from './components/Navbar'
-import { Home } from './pages/Home'
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './Router'
 
 export function App() {
   return (
     <>
       <div className="h-screen bg-base-background">
-        <NavBar />
-        <Home />
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
       </div>
     </>
   )
