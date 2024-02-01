@@ -1,29 +1,12 @@
-import { Minus, Plus } from 'phosphor-react'
-import { useState } from 'react'
 import { CartButton } from '../../components/CartButton'
 import { Coffe } from './Coffees'
+import { Stepper } from '../../components/Stepper'
 
 interface FoodCardProps {
   coffe: Coffe
 }
 
 export function FoodCard({ coffe }: FoodCardProps) {
-  const [amount, setAmount] = useState(1)
-
-  function increaseAmount() {
-    if (amount >= 99) {
-      return setAmount(99)
-    }
-    setAmount((prevState) => prevState + 1)
-  }
-
-  function decreaseAmount() {
-    if (amount <= 0) {
-      return setAmount(0)
-    }
-    setAmount((prevState) => prevState - 1)
-  }
-
   return (
     <div className="flex select-none flex-col items-center justify-between rounded-bl-3xl rounded-br-lg rounded-tl-lg rounded-tr-3xl bg-base-card px-5 pb-5">
       <div className="flex flex-col items-center">
@@ -53,21 +36,7 @@ export function FoodCard({ coffe }: FoodCardProps) {
           </h3>
         </div>
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1 rounded-sm bg-base-button p-2">
-            <Minus
-              size={14}
-              weight="bold"
-              className="cursor-pointer text-purple-base"
-              onClick={decreaseAmount}
-            />
-            <span className="text-base-title">{amount}</span>
-            <Plus
-              size={14}
-              weight="bold"
-              className="cursor-pointer text-purple-base"
-              onClick={increaseAmount}
-            />
-          </div>
+          <Stepper />
           <CartButton variant="primary" />
         </div>
       </div>
