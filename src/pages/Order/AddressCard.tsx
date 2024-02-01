@@ -22,7 +22,7 @@ export function AddressCard() {
         </div>
         <div className="flex gap-3">
           <Input className="w-56" placeholder="Bairro" />
-          <Input placeholder="Cidade" />
+          <Input className="w-full" placeholder="Cidade" />
           <Input className="max-w-16" placeholder="UF" />
         </div>
       </div>
