@@ -1,4 +1,5 @@
 import { Trash } from 'phosphor-react'
+import { NavLink } from 'react-router-dom'
 import americano from '../../assets/americano.png'
 import { Stepper } from '../../components/Stepper'
 
@@ -36,9 +37,13 @@ export function OrderCard() {
           <h3>Total</h3>
           <h3>R$ 33,20</h3>
         </div>
-        <button className="bold mt-3 flex items-center justify-center rounded bg-yellow-base py-3 uppercase text-white">
+        <NavLink
+          className="bold mt-3 flex items-center justify-center rounded bg-yellow-base py-3 uppercase text-white hover:bg-yellow-600"
+          to="/confirmedOrder"
+          title="Pedido Confirmado"
+        >
           <span>confirmar pedido</span>
-        </button>
+        </NavLink>
       </div>
     </div>
   )
