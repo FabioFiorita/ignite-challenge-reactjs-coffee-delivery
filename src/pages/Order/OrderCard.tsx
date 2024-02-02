@@ -1,41 +1,62 @@
-import { Trash } from 'phosphor-react'
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import americano from '../../assets/americano.png'
-import { Stepper } from '../../components/Stepper'
+import { OrderContext } from '../../contexts/OrderContext'
+import { OrderItem } from './OrderItem'
 
 export function OrderCard() {
+  const { order } = useContext(OrderContext)
+
+  const orderPrice = order.reduce(
+    (total, order) => total + order.coffee.price * order.quantity,
+    0,
+  )
+
+  const deliveryPrice = 3.5
+
+  const orderPriceWithDelivery = orderPrice + deliveryPrice
+
   return (
     <div className="min-w-128 rounded-bl-3xl rounded-br rounded-tl rounded-tr-3xl bg-base-card p-10 shadow">
-      <div className="flex items-start justify-between">
-        <div className="mb-6 flex">
-          <img className="mr-5 max-h-20" src={americano} alt="" />
-          <div>
-            <p className="text-base-subtitle">Expresso Tradicional</p>
-            <div className="flex items-center justify-start gap-2">
-              <Stepper />
-              <button className="flex items-center gap-2 rounded bg-base-button p-2 hover:bg-slate-300">
-                <Trash className="text-purple-base" size={16} />
-                <span className="text-sm uppercase text-base-text">
-                  Remover
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <h3 className="text-base-text">R$ 9,90</h3>
-      </div>
+      {order.map((order) => (
+        <OrderItem
+          key={order.coffee.id}
+          coffe={order.coffee}
+          quantity={order.quantity}
+        />
+      ))}
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between text-sm text-base-text">
           <p>Total de itens</p>
-          <p>R$ 29,70</p>
+          <p>
+            {new Intl.NumberFormat('pt-BR', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              currency: 'BRL',
+              style: 'currency',
+            }).format(orderPrice)}
+          </p>
         </div>
         <div className="flex items-center justify-between text-sm text-base-text">
           <p>Entrega</p>
-          <p>R$ 3,50</p>
+          <p>
+            {new Intl.NumberFormat('pt-BR', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              currency: 'BRL',
+              style: 'currency',
+            }).format(deliveryPrice)}
+          </p>
         </div>
         <div className="flex items-center justify-between text-lg text-base-subtitle">
           <h3>Total</h3>
-          <h3>R$ 33,20</h3>
+          <h3>
+            {new Intl.NumberFormat('pt-BR', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              currency: 'BRL',
+              style: 'currency',
+            }).format(orderPriceWithDelivery)}
+          </h3>
         </div>
         <NavLink
           className="bold mt-3 flex items-center justify-center rounded bg-yellow-base py-3 uppercase text-white hover:bg-yellow-600"
