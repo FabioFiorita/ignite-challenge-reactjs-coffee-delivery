@@ -1,5 +1,5 @@
+import { coffes } from '../../utils/Coffees'
 import { Banner } from './Banner'
-import { coffes } from './Coffees'
 import { FoodCard } from './FoodCard'
 
 export function Home() {
