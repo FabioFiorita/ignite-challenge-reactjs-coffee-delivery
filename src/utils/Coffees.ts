@@ -1,19 +1,19 @@
 import { v4 } from 'uuid'
 
-import americanoImg from '../../assets/americano.png'
-import arabeImg from '../../assets/arabe.png'
-import cafeGeladoImg from '../../assets/cafe-gelado.png'
-import cafeLeiteImg from '../../assets/cafe-leite.png'
-import cappuccinoImg from '../../assets/cappuccino.png'
-import chocolateQuenteImg from '../../assets/chocolate-quente.png'
-import cubanoImg from '../../assets/cubano.png'
-import expressoCremosoImg from '../../assets/expresso-cremoso.png'
-import expressoImg from '../../assets/expresso.png'
-import havaianoImg from '../../assets/havaiano.png'
-import irlandesImg from '../../assets/irlandes.png'
-import latteImg from '../../assets/latte.png'
-import macchiatoImg from '../../assets/macchiato.png'
-import mochaccinoImg from '../../assets/mochaccino.png'
+import americanoImg from '../assets/americano.png'
+import arabeImg from '../assets/arabe.png'
+import cafeGeladoImg from '../assets/cafe-gelado.png'
+import cafeLeiteImg from '../assets/cafe-leite.png'
+import cappuccinoImg from '../assets/cappuccino.png'
+import chocolateQuenteImg from '../assets/chocolate-quente.png'
+import cubanoImg from '../assets/cubano.png'
+import expressoCremosoImg from '../assets/expresso-cremoso.png'
+import expressoImg from '../assets/expresso.png'
+import havaianoImg from '../assets/havaiano.png'
+import irlandesImg from '../assets/irlandes.png'
+import latteImg from '../assets/latte.png'
+import macchiatoImg from '../assets/macchiato.png'
+import mochaccinoImg from '../assets/mochaccino.png'
 
 export interface Tag {
   id: string
@@ -21,6 +21,7 @@ export interface Tag {
 }
 
 export interface Coffe {
+  id: string
   image: string
   title: string
   description: string
@@ -29,6 +30,7 @@ export interface Coffe {
 }
 
 const expresso: Coffe = {
+  id: v4(),
   title: 'Expresso Tradicional',
   description: 'O tradicional café feito com água quente e grãos moídos',
   image: expressoImg,
@@ -42,6 +44,7 @@ const expresso: Coffe = {
 }
 
 const americano: Coffe = {
+  id: v4(),
   title: 'Expresso Americano',
   description: 'Expresso diluído, menos intenso que o tradicional',
   image: americanoImg,
@@ -55,6 +58,7 @@ const americano: Coffe = {
 }
 
 const cremoso: Coffe = {
+  id: v4(),
   title: 'Expresso Cremoso',
   description: 'Café expresso tradicional com espuma cremosa',
   image: expressoCremosoImg,
@@ -68,6 +72,7 @@ const cremoso: Coffe = {
 }
 
 const gelado: Coffe = {
+  id: v4(),
   title: 'Expresso Gelado',
   description: 'Bebida preparada com café expresso e cubos de gelo',
   image: cafeGeladoImg,
@@ -85,6 +90,7 @@ const gelado: Coffe = {
 }
 
 const cafeLeite: Coffe = {
+  id: v4(),
   title: 'Café com Leite',
   description: 'Meio a meio de expresso tradicional com leite vaporizado',
   image: cafeLeiteImg,
@@ -102,6 +108,7 @@ const cafeLeite: Coffe = {
 }
 
 const latte: Coffe = {
+  id: v4(),
   title: 'Latte',
   description:
     'Uma dose de café expresso com o dobro de leite e espuma cremosa',
@@ -120,6 +127,7 @@ const latte: Coffe = {
 }
 
 const cappuccino: Coffe = {
+  id: v4(),
   title: 'Capuccino',
   description:
     'Bebida com canela feita de doses iguais de café, leite e espuma',
@@ -138,6 +146,7 @@ const cappuccino: Coffe = {
 }
 
 const macchiato: Coffe = {
+  id: v4(),
   title: 'Macchiato',
   description: 'Café expresso misturado com um pouco de leite quente e espuma',
   image: macchiatoImg,
@@ -155,6 +164,7 @@ const macchiato: Coffe = {
 }
 
 const mochaccino: Coffe = {
+  id: v4(),
   title: 'Mocaccino',
   description: 'Café expresso com calda de chocolate, pouco leite e espuma',
   image: mochaccinoImg,
@@ -172,6 +182,7 @@ const mochaccino: Coffe = {
 }
 
 const chocolateQuente: Coffe = {
+  id: v4(),
   title: 'Chocolate Quente',
   description: 'Bebida feita com chocolate dissolvido no leite quente e café',
   image: chocolateQuenteImg,
@@ -189,6 +200,7 @@ const chocolateQuente: Coffe = {
 }
 
 const cubano: Coffe = {
+  id: v4(),
   title: 'Cubano',
   description:
     'Drink gelado de café expresso com rum, creme de leite e hortelã',
@@ -211,6 +223,7 @@ const cubano: Coffe = {
 }
 
 const havaiano: Coffe = {
+  id: v4(),
   title: 'Havaiano',
   description: 'Bebida adocicada preparada com café e leite de coco',
   image: havaianoImg,
@@ -224,6 +237,7 @@ const havaiano: Coffe = {
 }
 
 const arabe: Coffe = {
+  id: v4(),
   title: 'Árabe',
   description: 'Bebida preparada com grãos de café árabe e especiarias',
   image: arabeImg,
@@ -237,6 +251,7 @@ const arabe: Coffe = {
 }
 
 const irlandes: Coffe = {
+  id: v4(),
   title: 'Irlandês',
   description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
   image: irlandesImg,
