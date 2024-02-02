@@ -1,12 +1,25 @@
+import { useContext, useState } from 'react'
 import { CartButton } from '../../components/CartButton'
-import { Coffe } from './Coffees'
 import { Stepper } from '../../components/Stepper'
+import { OrderContext } from '../../contexts/OrderContext'
+import { Coffe } from '../../utils/Coffees'
 
 interface FoodCardProps {
   coffe: Coffe
 }
 
 export function FoodCard({ coffe }: FoodCardProps) {
+  const [amount, setAmount] = useState(1)
+  const { addCoffeToOrder } = useContext(OrderContext)
+
+  function onAmountChange(newAmount: number) {
+    setAmount(newAmount)
+  }
+
+  function handleAddCoffeToOrder() {
+    addCoffeToOrder(coffe, amount)
+  }
+
   return (
     <div className="flex select-none flex-col items-center justify-between rounded-bl-3xl rounded-br-lg rounded-tl-lg rounded-tr-3xl bg-base-card px-5 pb-5">
       <div className="flex flex-col items-center">
@@ -36,8 +49,8 @@ export function FoodCard({ coffe }: FoodCardProps) {
           </h3>
         </div>
         <div className="flex items-center gap-2">
-          <Stepper />
-          <CartButton variant="primary" />
+          <Stepper amount={amount} onAmountChange={onAmountChange} />
+          <CartButton variant="primary" onClick={handleAddCoffeToOrder} />
         </div>
       </div>
     </div>
