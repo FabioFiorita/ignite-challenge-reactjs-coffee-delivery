@@ -1,21 +1,23 @@
 import { Minus, Plus } from 'phosphor-react'
-import { useState } from 'react'
 
-export function Stepper() {
-  const [amount, setAmount] = useState(1)
+interface StepperProps {
+  amount: number
+  onAmountChange: (amount: number) => void
+}
 
+export function Stepper({ amount, onAmountChange }: StepperProps) {
   function increaseAmount() {
     if (amount >= 99) {
-      return setAmount(99)
+      return onAmountChange(99)
     }
-    setAmount((prevState) => prevState + 1)
+    onAmountChange(amount + 1)
   }
 
   function decreaseAmount() {
     if (amount <= 0) {
-      return setAmount(0)
+      return onAmountChange(0)
     }
-    setAmount((prevState) => prevState - 1)
+    onAmountChange(amount - 1)
   }
 
   return (
@@ -26,7 +28,7 @@ export function Stepper() {
         className="cursor-pointer text-purple-base"
         onClick={decreaseAmount}
       />
-      <span className="text-base-title">{amount}</span>
+      <span className="select-none text-base-title">{amount}</span>
       <Plus
         size={14}
         weight="bold"
